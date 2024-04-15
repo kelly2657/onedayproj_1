@@ -28,9 +28,11 @@
                 <button class="banner_menu">중고차 직거래</button>
             </div>
             <div id="banner_content">
-                <input type="text" class="search" placeholder="물품이나 동네를 검색해보세요">
-                <button type="submit" class="chat">채팅하기</button>
+                <input type="text" id="subject" class="search" placeholder="물품이나 동네를 검색해보세요">
+                <button type="submit" class="chat" onclick="newRegister(); return false;">채팅하기</button>
             </div>
+            <ul id="itemList"></ul>
+
         </div>
         <section class="box">
             <div class="image_wrap">
@@ -98,15 +100,9 @@
                         
                 </ul>
             </div>
-            
         </div>
-
-        <div id="lightbox">
-            <img src="" alt="" id="lightboxinfo">
-        </div>
-
-
         <div id="wrap">
+        
             <section>
                 
             </section>
@@ -117,6 +113,8 @@
             </div>
             <div id="con2">
                 <footer2>
+              
+                
                     <p>
                         <ul>
                             <li>중고거래</li>
@@ -136,9 +134,30 @@
                         </ul>
             
                     </p>
+                    
                 </footer2>
+            
             </div>
+            <div id="con3">
+                <p>
+                <span>중고거래 인기검색어</span>
+                <span>알바</span>
+                <span>나눔</span>
+                <span>자전거</span>
+                <span>의자</span>
+                <span>노트북</span>
+                <span>아이폰</span>
+                <span>한화</span>
+                <span>당근알바</span>
+                <span>냉장고</span>
+                <span>아이패드</span>
+                </p>
+               </div> 
+
+               
         <footer>
+    
+            
             <p>
                 <span>대표</span>
                 <span>김용현, 황대현 </span>ㅣ
@@ -166,24 +185,41 @@
                     <span>위치기반서비스 이용약관  </span>
                     <span>이용자보호 비전과 계획  </span>
                     <span>청소년보호정책</span>
-            </p> 
+                
+    
+            </p>
+            
         </footer>
     
     </div>
         <script>
-            var itemList = document.querySelectorAll('.item-list li');
-            let lightboxinfo = document.getElementById("lightboxinfo");
-            let lightbox = document.getElementById("lightbox");
 
-            
+            var newWin = window.open("1day_popup.html","","width=600, height=500");
+            consolde.log(`newWin`, newWin);
+
+
+            function newRegister() {
+                var newItem = document.createElement("li");
+                var subject = document.querySelector("#subject");
+                if (subject) {
+                var newText = document.createTextNode(subject.value);
+                newItem.appendChild(newText);
+
+                var itemList = document.querySelector("#itemList");
+                itemList.appendChild(newItem);
+
+                subject.value="";
+            } else {
+                console.error("오류!");
+            }
+
+        }
+
+            var itemList = document.querySelectorAll('.item-list li');
 
             itemList.forEach(function(li){
                 var imgOrigin = li.querySelector('img');
                 var originSrc = imgOrigin.getAttribute("src").split('.');
-                function showlightbox(){
-                lightboxinfo.setAttribute("src",`${originSrc[0]}.${originSrc[1]}`);
-                lightbox.style.display = 'block';  
-            }
 
                 li.addEventListener('mouseover', function(){
                     imgOrigin.setAttribute("src",`${originSrc[0]}2.${originSrc[1]}`);
@@ -192,12 +228,8 @@
                     imgOrigin.setAttribute("src",`${originSrc[0]}.${originSrc[1]}`);
                 })
 
-                li.addEventListener("click",showlightbox);
-            })
 
-            lightbox.onclick = () =>{
-                lightbox.style.display = 'none';
-            }
+            })
 
         </script>
     </body>
