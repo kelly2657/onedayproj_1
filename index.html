@@ -101,6 +101,11 @@
                 </ul>
             </div>
         </div>
+
+        <div id="lightbox">
+            <img src="" alt="" id="lightboxinfo">
+        </div>
+
         <div id="wrap">
         
             <section>
@@ -216,10 +221,17 @@
         }
 
             var itemList = document.querySelectorAll('.item-list li');
+            let lightboxinfo = document.getElementById("lightboxinfo");
+            let lightbox = document.getElementById("lightbox");
 
             itemList.forEach(function(li){
                 var imgOrigin = li.querySelector('img');
                 var originSrc = imgOrigin.getAttribute("src").split('.');
+
+                function showlightbox(){
+                lightboxinfo.setAttribute("src",`${originSrc[0]}.${originSrc[1]}`);
+                lightbox.style.display = 'block';  
+                }
 
                 li.addEventListener('mouseover', function(){
                     imgOrigin.setAttribute("src",`${originSrc[0]}2.${originSrc[1]}`);
@@ -228,8 +240,11 @@
                     imgOrigin.setAttribute("src",`${originSrc[0]}.${originSrc[1]}`);
                 })
 
-
+                li.addEventListener("click",showlightbox);
             })
+                lightbox.onclick = () =>{
+                    lightbox.style.display = 'none';
+                }
 
         </script>
     </body>
