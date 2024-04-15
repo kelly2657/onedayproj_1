@@ -18,6 +18,11 @@
     align-items: center;
 }
 
+#itemList li {
+    display: inline-block;
+    margin-right: 10px; 
+}
+
 .logo{
     display: flex;
     align-items: center;
