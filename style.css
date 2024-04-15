@@ -5,10 +5,11 @@
 
 #banner_wrap {
     height : 100%;
-    width: 1024px;
+    width: auto;
     margin: auto;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 #banner_content {

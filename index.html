@@ -28,9 +28,11 @@
                 <button class="banner_menu">중고차 직거래</button>
             </div>
             <div id="banner_content">
-                <input type="text" class="search" placeholder="물품이나 동네를 검색해보세요">
-                <button type="submit" class="chat">채팅하기</button>
+                <input type="text" id="subject" class="search" placeholder="물품이나 동네를 검색해보세요">
+                <button type="submit" class="chat" onclick="newRegister(); return false;">채팅하기</button>
             </div>
+            <ul id="itemList"></ul>
+
         </div>
         <section class="box">
             <div class="image_wrap">
@@ -176,6 +178,23 @@
     
     </div>
         <script>
+            function newRegister() {
+                var newItem = document.createElement("li");
+                var subject = document.querySelector("#subject");
+                if (subject) {
+                var newText = document.createTextNode(subject.value);
+                newItem.appendChild(newText);
+
+                var itemList = document.querySelector("#itemList");
+                itemList.appendChild(newItem);
+
+                subject.value="";
+            } else {
+                console.error("Input element with id 'subject' not found!");
+            }
+
+        }
+
             var itemList = document.querySelectorAll('.item-list li');
 
             itemList.forEach(function(li){
