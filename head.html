@@ -19,13 +19,15 @@
                 justify-content: center;
                 align-items: center;
             }
-            .carrot {
+            .carrot{
+                display: inline-flex;
+                align-items: center;
+                margin-right: 3.6rem;
                 font-style: normal;
-                font-size: large;
-                background-color: white;
+                font-weight: 700;
+                font-size: 30px;
                 color: rgb(206, 93, 0);
                 border: none;
-                font-weight: 700;
             }
             .banner_menu {
                 color: rgb(94, 94, 94);
@@ -34,17 +36,102 @@
                 font-size:large;
                 background-color: white;
                 border: none;
+                
+            }
+            .banner_menu:hover {
+                color: rgb(138, 138, 138);
+                font-style: normal;
+                font-weight: 700;
+                font-size:large;
+                background-color: white;
+                border: none;
+                cursor: pointer;
+            }
+            .banner_menu_selected {
+                color: rgb(206, 93, 0);
+                font-style: normal;
+                font-weight: 700;
+                font-size:large;
+                background-color: white;
+                border: none;
+            }
+            .chat {
+                border: 0.5px solid #b8bcc3;
+                border-radius: 0.5rem;
+                font-size: 1rem;
+                font-weight: 600;
+                margin: 10px;
+                width: 80px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+                cursor: pointer;
+            }
+            .search {
+                width: 250px;
+                padding: 10px;
+                margin-left: 60px;
+                border-radius: 0.3rem;
+                border: none;
+                outline: none;
+                background-color: #f2f3f6;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            .box {
+                height: 315px;
+                background-color: #FFF1AA;
+                padding: 0 16px 0 16px;
+                display: block;
+            }
+            .image_wrap {
+                position: relative;
+                height: 100%;
+                box-sizing: border-box;
+                padding-top: 50px;
+                max-width: 768px;
+                margin: 0 auto;
+            }
+            .image_content {
+                line-height: 1.5;
+                font-size: 34px;
+                letter-spacing: -0.32px;
+                padding: 0;
+                margin: 0;
+                outline: none;
+            }
+            .image_content_span {
+                line-height: 1.32;
+                font-size: 18px;
+                letter-spacing: -0.18px;
+                margin-top: 16px;
+                display: block;
+                margin: 0;
+                padding: 0;
+                outline: none;
+            }
+            .image img {
+                position: absolute;
+                bottom: 0;
+                display: flex;
+                right: 0;
+                height: 315px;
+                width: 416px;
+                padding: 0;
+                margin: 0;
+                outline: none;
             }
         </style>
     </head>
     <body>
         <div id="banner">
             <div id="banner_wrap">
-                <div id="banner_content" class="carrot">
+                <div id="" class="carrot">
                     <img src="img/4.png" width="40">당근
                 </div>
                 <div id="banner_content">
-                    <button class="banner_menu">중고거래</button>
+                    <button class="banner_menu_selected">중고거래</button>
                 </div>
             <div id="banner_content">
                 <button class="banner_menu">동네업체</button>
@@ -59,18 +146,18 @@
                 <button class="banner_menu">중고차 직거래</button>
             </div>
             <div id="banner_content">
-                <input type="text" placeholder="물품이나 동네를 검색해보세요">
-                <button type="submit">채팅하기</button>
+                <input type="text" class="search" placeholder="물품이나 동네를 검색해보세요">
+                <button type="submit" class="chat">채팅하기</button>
             </div>
         </div>
-        <div>
-            <h1>믿을만한<br>이웃 간 중고거래</h1>
-            <span>동네 주민들과 가깝고 따뜻한 거래를<br>지금 경험해보세요.</span>
-            <div>
-              <span>
-                <img alt="믿을만한 이웃 간 중고거래" src="img/2.jpg">
-              </span>
+        <section class="box">
+            <div class="image_wrap">
+                <h1 class="image_content">믿을만한<br>이웃 간 중고거래</h1>
+                <span class="image_content_span">동네 주민들과 가깝고 따뜻한 거래를<br>지금 경험해보세요.</span>
+                <div class="image">
+                    <img alt="믿을만한 이웃 간 중고거래" src="img/2.jpg" width="500">
+                </div>
             </div>
-        </div>
+        </section>
     </body>
 </html>
